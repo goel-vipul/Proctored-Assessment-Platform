@@ -1,0 +1,21 @@
+{
+  "name": "proctored-assessment-platform",
+  "version": "1.0.0",
+  "description": "Web platform for technical assessments with sandboxed code execution, plagiarism detection, and browser-behavior proctoring",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client",
+    "worker"
+  ],
+  "scripts": {
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "dev:worker": "npm run dev --workspace=worker",
+    "migrate": "npm run migrate --workspace=server",
+    "docker:build-langs": "docker build -t sandbox-cpp ./docker/images/cpp && docker build -t sandbox-java ./docker/images/java && docker build -t sandbox-python ./docker/images/python && docker build -t sandbox-javascript ./docker/images/javascript"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
